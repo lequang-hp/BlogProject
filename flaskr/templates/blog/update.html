@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Edit{% endblock %} {{ post['title'] }}</h1>
+{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        <label for="title">Title</label>
+        <input id="title" name="title" value="{{request.form['title'] or post['title']}}" required>
+        <label for="body">Body</label>
+        <textarea id="body" name="body">{{request.form['body'] or post['body'] }}</textarea>
+        <input type="submit" value="Update">
+    </form>
+    <form action="{{ url_for('blog.delete',id=post['id']) }}" method="POST">
+        <input class="danger" type="submit" value="Delete" onclick="return confirm('Are your sure')">
+    </form>
+{% endblock %}
