@@ -1,2 +1,2 @@
 # BlogProject
-Create the blog with Flask
+Create the blog with Flask + MySQL
